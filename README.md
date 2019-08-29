@@ -1,2 +1,4 @@
-# Easy Quiz Game
+# Easy Quiz Framework
 An easy quiz game framework.
+
+# History
