@@ -1,10 +1,29 @@
 <html>
  <head>
-  <title>Easy Quiz</title>
+  <title>Easy Quiz - Particpar</title>
  </head>
  <body>
-Tenés 60 segundos para responder la mayor cantidad de preguntas sobre Astronomía, RadioAstronomia, etc… Los tres mayores puntajes al cierre del evento tienen premio que será informado vía Mail.
+Tenés 60 segundos para responder la mayor cantidad de preguntas sobre Astronomía, RadioAstronomia, etc… Los tres mayores puntajes al cierre del evento tienen premio, y será informado vía Mail.
 <br />
- <?php echo '->'; ?>
+		<h1> Tus datos para participar:</h1>
+		
+		<form action ="participar.php" method ="post">
+			<label for="name">Nombre:</label>
+			<input type="text" name="name" id="name" />
+			<br /><br />
+			<label for="lastname">Apellido:</label>
+			<input type="text" name="lastname" id="lastname" />
+			<br /><br />
+			<label for="nick">Nick:</label>
+			<input type="text" name="nick" id="nick" />
+			<br /><br /> 
+			<label for="email">eMail:</label>
+			<input type="email" name="email" id="email" />
+			
+			<br / > <br />
+			<input type="submit" value="Participar!"/>
+			
+			</form>
+
  </body>
 </html>
