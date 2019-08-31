@@ -16,11 +16,14 @@
       if (!isset($_POST['nick'])) die("Error in the Nick");
       if (!isset($_POST['email'])) die("Error in the Email");
 
-      if (strlen($_POST['name']) > 31) die("Name too long");
-      if (strlen($_POST['lastname']) > 31) die("Lastname too long");
-      if (strlen($_POST['nick']) > 31) die("Nick too long");
-      if (strlen($_POST['email']) > 60) die("email too long");
-      if (strlen($_POST['email']) < 3) die("email too short");
+//     if (strlen($_POST['name']) > 31) die("Name too long");
+//     if (strlen($_POST['name']) < 1) die("email too short");
+//     if (strlen($_POST['lastname']) > 31) die("Lastname too long");
+//     if (strlen($_POST['lastname']) < 1) die("email too short");
+//     if (strlen($_POST['nick']) > 31) die("Nick too long");
+//     if (strlen($_POST['nick']) < 1) die("email too short");
+//     if (strlen($_POST['email']) > 60) die("email too long");
+//     if (strlen($_POST['email']) < 3) die("email too short");
  
 //      $_POST['name'] = mysqli_escape_string($cn, $_POST['name']);
 //      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
@@ -75,6 +78,7 @@ TenÃ©s 60 segundos para responder la mayor cantidad de preguntas sobre AstronomÃ
 ?>
 <h1>Perfil listo para participar!:</h1>
 <br />
+ <?php echo $_POST['name']+'-'+$_POST['lastname']+'-'+$_POST['nick']+'-'+$_POST['email']; ?>
 <a href="game.php">Comenzar!</a>
 <?php
   }
