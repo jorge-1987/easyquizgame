@@ -1,11 +1,10 @@
 <?php 
-  if (!isset($_POST['name'])) die("Error in the Name");
+  if (!isset($_POST['name'])) die("Error in the Name") else $ready = 1;
   if (!isset($_POST['lastname'])) die("Error in the Last Name");
   if (!isset($_POST['nick'])) die("Error in the Nick");
   if (!isset($_POST['email'])) die("Error in the Email");
-  var ready;
 
-  ready = 0;
+  $ready = 0;
   
 ?>
 <!DOCTYPE html>
@@ -17,7 +16,7 @@
 Tenés 60 segundos para responder la mayor cantidad de preguntas sobre Astronomía, RadioAstronomia, etc… Los tres mayores puntajes al cierre del evento tienen premio, y será informado vía Mail.
 <br />
 <?php 
-  if(ready==0)
+  if($ready==0)
   {
 ?>
 
