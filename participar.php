@@ -31,7 +31,7 @@
 //      $_POST['email'] = mysqli_escape_string($cn, $_POST['email']);
 
       $ready = 1;
-
+      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
 
 //mysqli_close($enlace);
     }
