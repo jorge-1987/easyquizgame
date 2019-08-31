@@ -13,6 +13,9 @@
   if (!isset($_POST['email'])) die("Error in the Email");
 }
 
+// Chequear que nunguna variable este vacia
+// Chequear que form sea 1 o distinto de uno
+// Que ready sea uno solo si todo esta ok
   
 ?>
 <!DOCTYPE html>
@@ -54,6 +57,8 @@ TenÃ©s 60 segundos para responder la mayor cantidad de preguntas sobre AstronomÃ
   {
 ?>
 <h1>Perfil listo para participar!:</h1>
+<br />
+<a href="game.php">Comenzar!</a>
 <?php
   }
 ?>
