@@ -1,5 +1,5 @@
 <?php 
-  if (!isset($_POST['name'])) die("Error in the Name") else $ready = 1;
+  if (!isset($_POST['name'])) { die("Error in the Name") } else { $ready = 1 }
   if (!isset($_POST['lastname'])) die("Error in the Last Name");
   if (!isset($_POST['nick'])) die("Error in the Nick");
   if (!isset($_POST['email'])) die("Error in the Email");
