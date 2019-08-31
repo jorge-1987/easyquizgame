@@ -11,10 +11,22 @@
 //    exit();
 //}
 
-      if (!isset($_POST['name'])) die("Error in the Name");
-      if (!isset($_POST['lastname'])) die("Error in the Last Name");
-      if (!isset($_POST['nick'])) die("Error in the Nick");
-      if (!isset($_POST['email'])) die("Error in the Email");
+      if (!isset($_POST['name'])) {
+        printf("Error in Name");
+        exit();
+      }
+      if (!isset($_POST['lastname'])) {
+        printf("Error in lastname");
+        exit();
+      }
+      if (!isset($_POST['nick'])) {
+        printf("Error in nick");
+        exit();
+      }
+      if (!isset($_POST['email'])) {
+        printf("Error in email");
+        exit();
+      }
 
 //     if (strlen($_POST['name']) > 31) die("Name too long");
 //     if (strlen($_POST['name']) < 1) die("email too short");
