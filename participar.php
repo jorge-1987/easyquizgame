@@ -1,8 +1,8 @@
 <?php 
   $ready = 0;
-if(isset($_POST['datos'])) {
-  if ($_POST['datos'] == "1")
-    {
+  if(isset($_POST['datos'])) {
+    if ($_POST['datos'] == "1")
+      {
 //$cn = mysqli_connect("localhost","root","","easyquiz",7188);
 
 /* verificar la conexión */
@@ -11,35 +11,55 @@ if(isset($_POST['datos'])) {
 //    exit();
 //}
 
-      if (!isset($_POST['name'])) {
-        printf("Error in Name");
-        exit();
-      } else {
-        printf("ESTA PERFECTO EL NAME");
-echo $_POST['name'];
-        exit();
-}
-      if (!isset($_POST['lastname'])) {
-        printf("Error in lastname");
-        exit();
-      }
-      if (!isset($_POST['nick'])) {
-        printf("Error in nick");
-        exit();
-      }
-      if (!isset($_POST['email'])) {
-        printf("Error in email");
-        exit();
-      }
+        if (!isset($_POST['name'])) {
+          printf("Error in Name");
+          exit();
+        }
+        if (!isset($_POST['lastname'])) {
+          printf("Error in lastname");
+          exit();
+        }
+        if (!isset($_POST['nick'])) {
+          printf("Error in nick");
+          exit();
+        }
+        if (!isset($_POST['email'])) {
+          printf("Error in email");
+          exit();
+        }
 
-//     if (strlen($_POST['name']) > 31) die("Name too long");
-//     if (strlen($_POST['name']) < 1) die("email too short");
-//     if (strlen($_POST['lastname']) > 31) die("Lastname too long");
-//     if (strlen($_POST['lastname']) < 1) die("email too short");
-//     if (strlen($_POST['nick']) > 31) die("Nick too long");
-//     if (strlen($_POST['nick']) < 1) die("email too short");
-//     if (strlen($_POST['email']) > 60) die("email too long");
-//     if (strlen($_POST['email']) < 3) die("email too short");
+       if (strlen($_POST['name']) > 31) {
+            printf("Error in Name too long");
+            exit();
+          }
+       if (strlen($_POST['name']) < 1) {
+            printf("Error in Name too short");
+            exit();
+          }
+       if (strlen($_POST['lastname']) > 31) {
+            printf("Error in lastname too long");
+            exit();
+          }
+       if (strlen($_POST['lastname']) < 1) {
+            printf("Error in lastname too short");
+            exit();
+          }
+       if (strlen($_POST['nick']) > 31) {
+            printf("Error in Nick too long");
+            exit();
+          }
+       if (strlen($_POST['nick']) < 1) {
+            printf("Error in Nick too short");
+            exit();
+          }
+       if (strlen($_POST['email']) > 60) {
+            printf("Error in email too long");
+            exit();
+          }
+       if (strlen($_POST['email']) < 3) {
+            printf("Error in email too short");
+            exit();
+          }
  
 //      $_POST['name'] = mysqli_escape_string($cn, $_POST['name']);
 //      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
@@ -47,7 +67,7 @@ echo $_POST['name'];
 //      $_POST['email'] = mysqli_escape_string($cn, $_POST['email']);
 
       $ready = 1;
-      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
+//      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
 
 //mysqli_close($enlace);
     }
