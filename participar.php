@@ -15,7 +15,9 @@ if(isset($_POST['datos'])) {
         printf("Error in Name");
         exit();
       } else {
-  echo "NAME ESTA PERFECTO:".$_POST['name']
+        printf("ESTA PERFECTO EL NAME");
+echo $_POST['name'];
+        exit();
 }
       if (!isset($_POST['lastname'])) {
         printf("Error in lastname");
