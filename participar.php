@@ -1,21 +1,33 @@
 <?php 
   $ready = 0;
   if ($_POST['form'] == 1)
-{
-  if (!isset($_POST['name']))
-  {
-    die("Error in the Name");
-  } else {
-    $ready = 1;
-  }
-  if (!isset($_POST['lastname'])) die("Error in the Last Name");
-  if (!isset($_POST['nick'])) die("Error in the Nick");
-  if (!isset($_POST['email'])) die("Error in the Email");
-}
+    {
+//$cn = mysqli_connect("localhost","root","","easyquiz",7188);
 
-// Chequear que nunguna variable este vacia
-// Chequear que form sea 1 o distinto de uno
-// Que ready sea uno solo si todo esta ok
+/* verificar la conexión */
+//if (mysqli_connect_errno()) {
+//    printf("Falló la conexión: %s\n", mysqli_connect_error());
+//    exit();
+//}
+
+      if (!isset($_POST['name'])) die("Error in the Name");
+      if (!isset($_POST['lastname'])) die("Error in the Last Name");
+      if (!isset($_POST['nick'])) die("Error in the Nick");
+      if (!isset($_POST['email'])) die("Error in the Email");
+
+      if (strlen($_POST['name']) > 31) die("Name too long");
+      if (strlen($_POST['lastname']) > 31) die("Lastname too long");
+      if (strlen($_POST['nick']) > 31) die("Nick too long");
+      if (strlen($_POST['email']) > 60) die("email too long");
+ 
+//      $_POST['name'] = mysqli_escape_string($cn, $_POST['name']);
+//      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
+//      $_POST['nick'] = mysqli_escape_string($cn, $_POST['nick']);
+//      $_POST['email'] = mysqli_escape_string($cn, $_POST['email']);
+
+      $ready = 1;
+    }
+
   
 ?>
 <!DOCTYPE html>
