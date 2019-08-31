@@ -1,7 +1,7 @@
 <?php 
   $ready = 0;
 
-  if ($_POST['datos'] == 1)
+  if ($_POST['datos'] == "1")
     {
 //$cn = mysqli_connect("localhost","root","","easyquiz",7188);
 
@@ -78,7 +78,7 @@ TenÃ©s 60 segundos para responder la mayor cantidad de preguntas sobre AstronomÃ
 ?>
 <h1>Perfil listo para participar!:</h1>
 <br />
- <?php echo $_POST['name']+'-'+$_POST['lastname']+'-'+$_POST['nick']+'-'+$_POST['email']; ?>
+ <?php echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email']; ?>
 <a href="game.php">Comenzar!</a>
 <?php
   }
