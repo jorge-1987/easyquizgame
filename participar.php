@@ -1,6 +1,7 @@
 <?php 
   $ready = 0;
-  if ($_POST['form'] == 1)
+
+  if ($_POST['datos'] == 1)
     {
 //$cn = mysqli_connect("localhost","root","","easyquiz",7188);
 
@@ -19,6 +20,7 @@
       if (strlen($_POST['lastname']) > 31) die("Lastname too long");
       if (strlen($_POST['nick']) > 31) die("Nick too long");
       if (strlen($_POST['email']) > 60) die("email too long");
+      if (strlen($_POST['email']) < 3) die("email too short");
  
 //      $_POST['name'] = mysqli_escape_string($cn, $_POST['name']);
 //      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
@@ -26,6 +28,9 @@
 //      $_POST['email'] = mysqli_escape_string($cn, $_POST['email']);
 
       $ready = 1;
+
+
+//mysqli_close($enlace);
     }
 
   
@@ -57,7 +62,7 @@ TenÃ©s 60 segundos para responder la mayor cantidad de preguntas sobre AstronomÃ
 			<br /><br /> 
 			<label for="email">eMail:</label>
 			<input type="email" name="email" id="email" />
-			<input type="hidden" id="form" name="form" value="1">
+			<input type="hidden" id="datos" name="datos" value="1">
 			<br / > <br />
 			<input type="submit" value="Participar!"/>
 			
