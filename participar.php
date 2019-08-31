@@ -1,4 +1,6 @@
 <?php 
+  if ($_POST['form'] == 1)
+{
   if (!isset($_POST['name']))
   {
     die("Error in the Name");
@@ -8,7 +10,7 @@
   if (!isset($_POST['lastname'])) die("Error in the Last Name");
   if (!isset($_POST['nick'])) die("Error in the Nick");
   if (!isset($_POST['email'])) die("Error in the Email");
-
+}
   $ready = 0;
   
 ?>
@@ -39,7 +41,7 @@ TenÃ©s 60 segundos para responder la mayor cantidad de preguntas sobre AstronomÃ
 			<br /><br /> 
 			<label for="email">eMail:</label>
 			<input type="email" name="email" id="email" />
-			
+			<input type="hidden" id="form" name="form" value="1">
 			<br / > <br />
 			<input type="submit" value="Participar!"/>
 			
