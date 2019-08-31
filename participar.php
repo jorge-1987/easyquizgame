@@ -1,6 +1,6 @@
 <?php 
   $ready = 0;
-
+if(isset($_POST['datos'])) {
   if ($_POST['datos'] == "1")
     {
 //$cn = mysqli_connect("localhost","root","","easyquiz",7188);
@@ -47,6 +47,7 @@
 
 //mysqli_close($enlace);
     }
+}
 
   
 ?>
