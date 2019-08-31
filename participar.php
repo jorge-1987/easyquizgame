@@ -1,4 +1,5 @@
 <?php 
+  $ready = 0;
   if ($_POST['form'] == 1)
 {
   if (!isset($_POST['name']))
@@ -11,7 +12,7 @@
   if (!isset($_POST['nick'])) die("Error in the Nick");
   if (!isset($_POST['email'])) die("Error in the Email");
 }
-  $ready = 0;
+
   
 ?>
 <!DOCTYPE html>
