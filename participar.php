@@ -60,7 +60,14 @@
             printf("Error in email too short");
             exit();
           }
- 
+
+       $_POST["email"] = test_input($_POST["email"]);
+       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+         printf("Error in email format");
+         exit();
+       }
+//Verificar que el mail tiene una arroba, y un punto.
+
 //      $_POST['name'] = mysqli_escape_string($cn, $_POST['name']);
 //      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
 //      $_POST['nick'] = mysqli_escape_string($cn, $_POST['nick']);
