@@ -61,8 +61,8 @@
             exit();
           }
 
-       $_POST["email"] = test_input($_POST["email"]);
-       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+       //$_POST["email"] = test_input($_POST["email"]);
+       if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
          printf("Error in email format");
          exit();
        }
