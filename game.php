@@ -5,6 +5,8 @@
 //      {
 
 $tiempo=time();
+
+//si es la primera vez correr una sola vez
 $tiempo60=($tiempo+60);
 
 //$cn = mysqli_connect("localhost","root","","easyquiz",7188);
@@ -75,5 +77,11 @@ Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
 <br />
  <?php echo $tiempo ?>
  <?php echo $tiempo60 ?>
+<br />
+<?php
+echo rand(5, 15);
+echo rand(5, 15);
+echo rand(5, 15);
+?>
  </body>
 </html>
