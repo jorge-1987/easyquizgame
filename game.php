@@ -31,6 +31,9 @@ array_push($emptyArray, "7", "5");
 // Display array elements 
 print_r($emptyArray); 
 
+sort($emptyArray)
+
+print_r($emptyArray);
 //      $ready = 1;
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
 
@@ -49,27 +52,23 @@ Timer:
 <br />
 		<h1><?php echo 'Pregunta X:'; ?></h1>
 		
-		<form action ="participar.php" method ="post">
+		<form action ="game.php" method ="post">
   <div>
-    <input type="radio" id="contactChoice1"
-     name="contact" value="email">
+    <input type="radio" id="contactChoice1" name="answ" value="email">
     <label for="contactChoice1">Email</label>
 
-    <input type="radio" id="contactChoice2"
-     name="contact" value="phone">
+    <input type="radio" id="contactChoice2" name="answ" value="phone">
     <label for="contactChoice2">Phone</label>
 
-    <input type="radio" id="contactChoice3"
-     name="contact" value="mail">
+    <input type="radio" id="contactChoice3" name="answ" value="mail">
     <label for="contactChoice3">Mail</label>
 
-    <input type="radio" id="contactChoice4"
-     name="contact" value="mail">
+    <input type="radio" id="contactChoice4" name="answ" value="mail">
     <label for="contactChoice4">Mail</label>
   </div>
 			<input type="hidden" id="datos" name="datos" value="1">
 			<br / > <br />
-			<input type="submit" value="Participar!"/>
+			<input type="submit" value="Responder!"/>
 			
 			</form>
 <br />
