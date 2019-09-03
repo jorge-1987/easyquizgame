@@ -4,6 +4,8 @@
  //   if ($_POST['datos'] == "1")
 //      {
 
+$tiempo=time();
+$tiempo60=($tiempo+60);
 
 //$cn = mysqli_connect("localhost","root","","easyquiz",7188);
 
@@ -36,7 +38,8 @@ print_r($emptyArray);
 
 //    }
 
-}
+//}
+?>
 <html>
  <head>
   <title>Easy Quiz</title>
@@ -70,6 +73,7 @@ Timer:
 			
 			</form>
 <br />
- <?php echo '-'; ?>
+ <?php echo $tiempo ?>
+ <?php echo $tiempo60 ?>
  </body>
 </html>
