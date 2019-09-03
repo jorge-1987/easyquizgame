@@ -31,7 +31,7 @@ array_push($emptyArray, "7", "5");
 // Display array elements 
 print_r($emptyArray); 
 
-sort($emptyArray)
+sort($emptyArray);
 
 print_r($emptyArray);
 //      $ready = 1;
@@ -48,7 +48,8 @@ print_r($emptyArray);
   <title>Easy Quiz</title>
  </head>
  <body>
-Timer:
+<br />
+Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
 <br />
 		<h1><?php echo 'Pregunta X:'; ?></h1>
 		
