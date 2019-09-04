@@ -84,11 +84,11 @@ Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
 <?php
 print_r($respuestas);
 //Traer de la DB String para el ID
-foreach ($respuestas as $rid)
+foreach($respuestas as $rid)
 {
 ?>
-    <input type="radio" id="<?php $rid ?>" name="answ" value="<?php $rid ?>">
-    <label for="<?php $rid ?>"><?php echo 'texto de '.$rid; ?></label>
+    <input type="radio" id="<?=$rid ?>" name="answ" value="<?=$rid ?>">
+    <label for="<?=$rid ?>"><?php echo 'texto de '.$rid; ?></label>
 <?php
 }
 ?>
