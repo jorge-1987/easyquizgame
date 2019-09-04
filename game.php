@@ -8,7 +8,8 @@
 //TEST
 $tiempo = 0;
 
-  if(isset($_POST['datos'])) {
+  if(isset($_POST['datos']))
+  {
     if ($_POST['datos'] != "0")
       {
          if (!ctype_digit($_POST['datos']))
@@ -57,7 +58,7 @@ $tiempo = 0;
              }
          }
       }
-
+  }
 
 
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
@@ -86,7 +87,7 @@ print_r($respuestas);
 foreach ($respuestas as $rid)
 {
 ?>
-    <input type="radio" id=<?php $rid ?> name="answ" value="<?php $rid ?>">
+    <input type="radio" id="<?php $rid ?>" name="answ" value="<?php $rid ?>">
     <label for="<?php $rid ?>"><?php echo 'texto de '.$rid; ?></label>
 <?php
 }
