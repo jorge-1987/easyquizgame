@@ -49,7 +49,7 @@ $tiempo = 0;
                  }
                  else
                  {
-                   $i--
+                   $i--;
                  }
                }
                sort($respuestas);
