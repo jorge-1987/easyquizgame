@@ -82,6 +82,7 @@ Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
 		<form action ="game.php" method ="post">
   <div>
 <?php
+//DEBUG:
 print_r($respuestas);
 //Traer de la DB String para el ID
 foreach($respuestas as $rid)
@@ -89,6 +90,7 @@ foreach($respuestas as $rid)
 ?>
     <input type="radio" id="<?=$rid ?>" name="answ" value="<?=$rid ?>">
     <label for="<?=$rid ?>"><?php echo 'texto de '.$rid; ?></label>
+<br />
 <?php
 }
 ?>
