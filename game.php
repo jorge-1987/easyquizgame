@@ -1,42 +1,67 @@
 <?php 
-//  $ready = 0;
-//  if(isset($_POST['datos'])) {
- //   if ($_POST['datos'] == "1")
-//      {
-
-$tiempo=time();
-
-//si es la primera vez correr una sola vez
-$tiempo60=($tiempo+60);
-
-//$cn = mysqli_connect("localhost","root","","easyquiz",7188);
-
 /* verificar la conexión */
 //if (mysqli_connect_errno()) {
 //    printf("Falló la conexión: %s\n", mysqli_connect_error());
 //    exit();
 //}
 
-//        if (!isset($_POST['name'])) {
-//          printf("Error in Name");
-//          exit();
-//        }
+//TEST
+$tiempo = 0;
 
-// Create an empty array 
-$emptyArray=array(); 
-  
-// Push elements to the array 
-array_push($emptyArray, "1", "3");
+  if(isset($_POST['datos'])) {
+    if ($_POST['datos'] != "0")
+      {
+         if (!ctype_digit($_POST['datos']))
+           {
+             //$cn = mysqli_connect("localhost","root","","easyquiz",7188);
+             //Levantar el tiempo del perfil en la DB
+             //$tiempo=
+             if ($tiempo == 0)
+               {
+                 //Obtener timestamp
+                 $tiempo=time();
+                 //Guardar timestamp en la DB
+                 // $tiempo
+                 //Obtener Timestamp+60
+                 $tiempo60=($tiempo+62);
+                 //Guardar tiempo +60 en el perfil de la DB
+                 // $tiempo60
+               }
 
-array_push($emptyArray, "7", "5"); 
-  
-// Display array elements 
-print_r($emptyArray); 
+           $tiempo=time();
+           //Obtener T+60 de la DB
+           // $tiempo60
+           if ($tiempo < $tiempo60)
+             {
+               $preguntaid=rand(1, 15);
+               //levantar pregunta de la DB
+//               $preguntastring= algo $preguntaid
 
-sort($emptyArray);
+               $respuestas=array(); 
+               array_push($respuestas, $preguntaid);
 
-print_r($emptyArray);
-//      $ready = 1;
+               for ($i = 1; $i <= 3; $i++)
+               {
+                 $respid=rand(1, 15);
+                 if ($respid != $preguntaid)
+                 {
+                   array_push($respuestas, $respid);
+                 }
+                 else
+                 {
+                   $i--
+                 }
+               }
+               sort($respuestas);
+
+               //TEST
+               print_r($emptyArray);
+             }
+         }
+      }
+
+
+
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
 
 //mysqli_close($enlace);
@@ -75,13 +100,5 @@ Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
 			
 			</form>
 <br />
- <?php echo $tiempo ?>
- <?php echo $tiempo60 ?>
-<br />
-<?php
-echo rand(5, 15);
-echo rand(5, 15);
-echo rand(5, 15);
-?>
- </body>
+</body>
 </html>
