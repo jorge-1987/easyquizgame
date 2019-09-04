@@ -83,7 +83,7 @@ Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
   <div>
 <?php
 //DEBUG:
-print_r($respuestas);
+//print_r($respuestas);
 //Traer de la DB String para el ID
 foreach($respuestas as $rid)
 {
