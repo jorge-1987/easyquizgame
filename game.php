@@ -54,8 +54,6 @@ $tiempo = 0;
                }
                sort($respuestas);
 
-               //TEST
-               print_r($emptyArray);
              }
          }
       }
@@ -78,23 +76,23 @@ $tiempo = 0;
 <br />
 Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
 <br />
-		<h1><?php echo 'Pregunta X:'; ?></h1>
+		<h1><?php echo $preguntastring; ?></h1>
 		
 		<form action ="game.php" method ="post">
   <div>
-    <input type="radio" id="contactChoice1" name="answ" value="email">
-    <label for="contactChoice1">Email</label>
-
-    <input type="radio" id="contactChoice2" name="answ" value="phone">
-    <label for="contactChoice2">Phone</label>
-
-    <input type="radio" id="contactChoice3" name="answ" value="mail">
-    <label for="contactChoice3">Mail</label>
-
-    <input type="radio" id="contactChoice4" name="answ" value="mail">
-    <label for="contactChoice4">Mail</label>
+<?php
+print_r($respuestas);
+//Traer de la DB String para el ID
+foreach ($respuestas as $rid)
+{
+?>
+    <input type="radio" id=<?php $rid ?> name="answ" value="<?php $rid ?>">
+    <label for="<?php $rid ?>"><?php echo 'texto de '.$rid; ?></label>
+<?php
+}
+?>
   </div>
-			<input type="hidden" id="datos" name="datos" value="1">
+			<input type="hidden" id="datos" name="datos" value="<?php $_POST['datos'] ?>">
 			<br / > <br />
 			<input type="submit" value="Responder!"/>
 			
