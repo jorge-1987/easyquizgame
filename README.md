@@ -5,6 +5,13 @@ An easy quiz game framework.
 To be able to present a simple game of questions and answers for events or presentations.
 
 # Requirements
+* Right now needs:
+Web Server
+PHP
+MySql
+
+* Future:
+Docker
 You should only need to fill a database with parameters, questions and answers to use it.
 
 # Future Goal
