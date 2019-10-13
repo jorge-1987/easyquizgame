@@ -3,9 +3,9 @@
   <title>Easy Quiz</title>
  </head>
  <body>
-Bienvenido al desafio de la Asociacion Argentina Amigos de la Astronomia!
+Bienvenido al desafio EasyQuiz!
 <br />
-Respondé preguntas de astronomia y participá de premios en la AAAA
+Respondé la mayor cantidad de preguntas que puedas en un minuto!
 <br />
 <a href="participar.php">Quiero participar!</a>
 <br />

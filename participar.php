@@ -3,13 +3,13 @@
   if(isset($_POST['datos'])) {
     if ($_POST['datos'] == "1")
       {
-//$cn = mysqli_connect("localhost","root","","easyquiz",7188);
-
-/* verificar la conexión */
-//if (mysqli_connect_errno()) {
-//    printf("Falló la conexión: %s\n", mysqli_connect_error());
-//    exit();
-//}
+        //Conectar
+        $cn = mysqli_connect("localhost","easyquiz","","some_pass",3306);
+        /* verificar la conexión */
+        if (mysqli_connect_errno()) {
+            printf("Falló la conexión: %s\n", mysqli_connect_error());
+            exit();
+        }
 
         if (!isset($_POST['name'])) {
           printf("Error in Name");
@@ -72,6 +72,8 @@
 //      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
 //      $_POST['nick'] = mysqli_escape_string($cn, $_POST['nick']);
 //      $_POST['email'] = mysqli_escape_string($cn, $_POST['email']);
+
+// GUARDAR TODO EN LA DB
 
       $ready = 1;
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;

@@ -1,12 +1,15 @@
 <?php 
+//Conectar
+$cn = mysqli_connect("localhost","easyquiz","","some_pass",3306);
 /* verificar la conexión */
-//if (mysqli_connect_errno()) {
-//    printf("Falló la conexión: %s\n", mysqli_connect_error());
-//    exit();
-//}
+if (mysqli_connect_errno()) {
+    printf("Falló la conexión: %s\n", mysqli_connect_error());
+    exit();
+}
 
 //TEST
 $tiempo = 0;
+$preguntastring= ""
 
   if(isset($_POST['datos']))
   {
@@ -14,7 +17,6 @@ $tiempo = 0;
       {
          if (!ctype_digit($_POST['datos']))
            {
-             //$cn = mysqli_connect("localhost","root","","easyquiz",7188);
              //Levantar el tiempo del perfil en la DB
              //$tiempo=
              if ($tiempo == 0)
@@ -36,7 +38,7 @@ $tiempo = 0;
              {
                $preguntaid=rand(1, 15);
                //levantar pregunta de la DB
-//               $preguntastring= algo $preguntaid
+               //$preguntastring= "algo $preguntaid"
 
                $respuestas=array(); 
                array_push($respuestas, $preguntaid);
