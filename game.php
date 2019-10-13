@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 
 //TEST
 $tiempo = 0;
-$preguntastring= ""
+$preguntastring= "";
 
   if(isset($_POST['datos']))
   {
