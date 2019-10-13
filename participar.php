@@ -4,7 +4,7 @@
     if ($_POST['datos'] == "1")
       {
         //Conectar
-        $cn = mysqli_connect("localhost","easyquiz","","some_pass",3306);
+        $cn = mysqli_connect("localhost","easyquiz","some_pass","easyquiz",3306);
         /* verificar la conexión */
         if (mysqli_connect_errno()) {
             printf("Falló la conexión: %s\n", mysqli_connect_error());
@@ -68,10 +68,10 @@
        }
 //Verificar que el mail tiene una arroba, y un punto.
 
-//      $_POST['name'] = mysqli_escape_string($cn, $_POST['name']);
-//      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
-//      $_POST['nick'] = mysqli_escape_string($cn, $_POST['nick']);
-//      $_POST['email'] = mysqli_escape_string($cn, $_POST['email']);
+      $_POST['name'] = mysqli_escape_string($cn, $_POST['name']);
+      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
+      $_POST['nick'] = mysqli_escape_string($cn, $_POST['nick']);
+      $_POST['email'] = mysqli_escape_string($cn, $_POST['email']);
 
 // GUARDAR TODO EN LA DB
 

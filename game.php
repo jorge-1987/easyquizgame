@@ -1,6 +1,6 @@
 <?php 
 //Conectar
-$cn = mysqli_connect("localhost","easyquiz","","some_pass",3306);
+$cn = mysqli_connect("localhost","easyquiz","some_pass","easyquiz",3306);
 /* verificar la conexión */
 if (mysqli_connect_errno()) {
     printf("Falló la conexión: %s\n", mysqli_connect_error());
