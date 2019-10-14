@@ -130,7 +130,7 @@ TenÃ©s 60 segundos para responder la mayor cantidad de preguntas sobre AstronomÃ
 ?>
 <h1>Perfil listo para participar!:</h1>
 <br />
- <?php /*echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email']; */ echo $pid; ?>
+ <?php echo "----- ".$pid." -----"; ?>
 <a href="game.php">Comenzar!</a>
 <?php
   }
