@@ -130,9 +130,10 @@ TenÃ©s 60 segundos para responder la mayor cantidad de preguntas sobre AstronomÃ
   else
   {
 ?>
-<h1>Perfil listo para participar <?=$sdata["nick"] ?>!:</h1>
+<h1>Perfil listo para participar -<?=$sdata["nick"] ?>-!:</h1>
+<h2>Mucha suerte, una vez que hagas click en comenzar, empieza a correr el tiempo</h2>
 <br />
-<a href="game.php?pid?=<?=$sdata["id"] ?>">Comenzar!</a>
+<a href="game.php?pid=<?=$sdata["id"] ?>">Comenzar!</a>
 <?php
   }
 ?>
