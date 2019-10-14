@@ -80,7 +80,8 @@
 
 // LEVANTAR ID
 
-      $pid = mysqli_query($cn,"Select id from easyquiz.participants where mail = 'j@j.com';");
+      $res = mysqli_query($cn,"Select id from easyquiz.participants where mail = 'j@j.com';");
+      $pid = mysqli_fetch_assoc($res);
       echo $pid;
       $ready = 1;
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
