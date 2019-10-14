@@ -1,16 +1,19 @@
 <?php 
+  //Conectar
+  $cn = mysqli_connect("localhost","easyquiz","some_pass","easyquiz",3306);
+  /* verificar la conexión */
+  if (mysqli_connect_errno()) {
+    printf("Falló la conexión: %s\n", mysqli_connect_error());
+    exit();
+  }
+
+
   $ready = 0;
+  $pid = 0;
+
   if(isset($_POST['datos'])) {
     if ($_POST['datos'] == "1")
       {
-        //Conectar
-        $cn = mysqli_connect("localhost","easyquiz","some_pass","easyquiz",3306);
-        /* verificar la conexión */
-        if (mysqli_connect_errno()) {
-            printf("Falló la conexión: %s\n", mysqli_connect_error());
-            exit();
-        }
-
         if (!isset($_POST['name'])) {
           printf("Error in Name");
           exit();
@@ -75,6 +78,9 @@
 
 // GUARDAR TODO EN LA DB
 
+// LEVANTAR ID
+
+$pid = mysqli_query($cn,"Select id from easyquiz.participants where mail = 'j@j.com';");
       $ready = 1;
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
 
@@ -124,7 +130,7 @@ Tenés 60 segundos para responder la mayor cantidad de preguntas sobre Astronom�
 ?>
 <h1>Perfil listo para participar!:</h1>
 <br />
- <?php echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email']; ?>
+ <?php /*echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email']; */ echo $pid; ?>
 <a href="game.php">Comenzar!</a>
 <?php
   }
