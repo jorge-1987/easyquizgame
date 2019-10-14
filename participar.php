@@ -80,9 +80,9 @@
 
 // LEVANTAR ID
 
-      $res = mysqli_query($cn,"Select id from easyquiz.participants where mail = 'j@j.com';");
-      $pid = mysqli_fetch_assoc($res);
-      echo $pid["id"];
+      $res = mysqli_query($cn,"Select id,nick from easyquiz.participants where mail = 'j@j.com';");
+      $sdata = mysqli_fetch_assoc($res);
+//      echo $pid["id"];
       $ready = 1;
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
 
@@ -130,10 +130,9 @@ TenÃ©s 60 segundos para responder la mayor cantidad de preguntas sobre AstronomÃ
   else
   {
 ?>
-<h1>Perfil listo para participar!:</h1>
+<h1>Perfil listo para participar <?=$sdata["nick"] ?>!:</h1>
 <br />
- <?php echo "----- ".$pid." -----"; ?>
-<a href="game.php">Comenzar!</a>
+<a href="game.php?pid?=<?=$sdata["id"] ?>">Comenzar!</a>
 <?php
   }
 ?>
