@@ -17,7 +17,11 @@ $preguntastring= "";
     $pid = $_GET['pid'];
     $res = mysqli_query($cn,"Select timestamp from easyquiz.participants where id = '$pid';");
     $sdata = mysqli_fetch_assoc($res);
-    echo "----*".$sdata['timestamp']."*----";
+    if ($sdata['timestamp'] == "")
+    {
+      $tiempo=time();
+      $res = mysqli_query($cn,"UPDATE easyquiz.participants SET timestamp = '$tiempo' WHERE id = '$pid';";
+    }
     
   }
 
