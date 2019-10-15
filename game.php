@@ -14,9 +14,11 @@ $preguntastring= "";
   if(isset($_GET['pid']))
   {
       //SANITIZAR GET PID PARA EVITAR INJECTION
-    $res = mysqli_query($cn,"Select timestamp from easyquiz.participants where id = $_GET['pid'];");
+    $pid = $_GET['pid'];
+    $res = mysqli_query($cn,"Select timestamp from easyquiz.participants where id = '$pid';");
     $sdata = mysqli_fetch_assoc($res);
     echo "----*".$res['timestamp']."*----";
+    
   }
 
   if(isset($_POST['datos']))
