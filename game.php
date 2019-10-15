@@ -17,7 +17,7 @@ $preguntastring= "";
     $pid = $_GET['pid'];
     $res = mysqli_query($cn,"Select timestamp from easyquiz.participants where id = '$pid';");
     $sdata = mysqli_fetch_assoc($res);
-    echo "----*".$res['timestamp']."*----";
+    echo "----*".$sdata['timestamp']."*----";
     
   }
 
