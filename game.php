@@ -20,7 +20,7 @@ $preguntastring= "";
     if ($sdata['timestamp'] == "")
     {
       $tiempo=time();
-      $res = mysqli_query($cn,"UPDATE easyquiz.participants SET timestamp = '$tiempo' WHERE id = '$pid';";
+      $res = mysqli_query($cn,"UPDATE easyquiz.participants SET timestamp = '$tiempo' WHERE id = '$pid';");
     }
     
   }
