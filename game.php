@@ -1,9 +1,8 @@
 <?php 
 
-//TEST
 $tiempo = 0;
-$preguntastring= "";
-$tiempo60=0;
+$preguntastring = "";
+$tiempo60 = 0;
 
 if(isset($_GET['pid']))
   {
