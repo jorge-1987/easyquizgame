@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $tiempo = 0;
 $preguntastring = "";
@@ -39,7 +39,7 @@ if(isset($_GET['pid']))
       }
       else
       {
-        echo "ID is wrong. I dont know why, but is wrong"
+        echo "ID is wrong. I dont know why, but is wrong";
         exit();
       }
     } 
