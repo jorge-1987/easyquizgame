@@ -1,20 +1,20 @@
 <?php 
-//Conectar
-$cn = mysqli_connect("localhost","easyquiz","some_pass","easyquiz",3306);
-/* verificar la conexión */
-if (mysqli_connect_errno()) {
-    printf("Falló la conexión: %s\n", mysqli_connect_error());
-    exit();
-}
 
 //TEST
 $tiempo = 0;
 $preguntastring= "";
 $tiempo60=0;
 
-  if(isset($_GET['pid']))
+if(isset($_GET['pid']))
   {
-      //SANITIZAR GET PID PARA EVITAR INJECTION
+    //Conectar
+    $cn = mysqli_connect("localhost","easyquiz","some_pass","easyquiz",3306);
+    /* verificar la conexión */
+    if (mysqli_connect_errno()) {
+      printf("Falló la conexión: %s\n", mysqli_connect_error());
+      exit();
+    }
+    //SANITIZAR GET PID PARA EVITAR INJECTION
     $_GET['pid'] = mysqli_escape_string($cn, $_PID['pid']);
     if (ctype_digit($_GET['pid']))
     {
