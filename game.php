@@ -3,6 +3,7 @@
 $tiempo = 0;
 $preguntastring = "";
 $tiempo60 = 0;
+$continue = 0;
 
 if(isset($_GET['pid']))
   {
@@ -22,6 +23,7 @@ if(isset($_GET['pid']))
       if(mysqli_error($cn)!="")
         {
           echo mysqli_error($cn);
+          $pid = -1;
           exit();
         }
       if (mysqli_num_rows($res) == 1)
@@ -40,12 +42,13 @@ if(isset($_GET['pid']))
       else
       {
         echo "ID is wrong. I dont know why, but is wrong";
+        $pid = -1;
         exit();
       }
     } 
   }
 
-  if($pid)
+  if($pid > 0)
   {
     if ($tiempo > 0)
       {
@@ -75,8 +78,12 @@ if(isset($_GET['pid']))
             }
           }
           sort($respuestas);
-     
+          $continue = 1;
 
+        }
+        else
+        {
+          $continue = 0;
         }
       
       }
@@ -90,6 +97,11 @@ if(isset($_GET['pid']))
  </head>
  <body>
 <br />
+<?php
+//Todavia puede seguir respondiendo
+if ($continue == 1)
+{
+?>
 Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
 <br />
 		<h1><?php echo $preguntastring; ?></h1>
@@ -116,5 +128,17 @@ foreach($respuestas as $rid)
 			
 			</form>
 <br />
+<?php
+//NO puede continuar mas.
+}
+else
+{
+?>
+  <h1>Gracias por participar!</h1>
+<br />
+<a href="game.php?pid=<?=$pid ?>">Go to Score.</a>
+<?php
+}
+?>
 </body>
 </html>
