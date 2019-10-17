@@ -15,7 +15,7 @@ if(isset($_GET['pid']))
       exit();
     }
     //SANITIZAR GET PID PARA EVITAR INJECTION
-    $_GET['pid'] = mysqli_escape_string($cn, $_PID['pid']);
+    $_GET['pid'] = mysqli_escape_string($cn, $_GET['pid']);
     if (ctype_digit($_GET['pid']))
     {
       $pid = $_GET['pid'];
@@ -136,7 +136,7 @@ else
 ?>
   <h1>Gracias por participar!</h1>
 <br />
-<a href="game.php?pid=<?=$pid ?>">Go to Score.</a>
+<a href="score.php?pid=<?=$pid ?>">Go to Score.</a>
 <?php
 }
 ?>
