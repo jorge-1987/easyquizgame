@@ -19,7 +19,7 @@ if(isset($_GET['pid']))
     if (ctype_digit($_GET['pid']))
     {
       $pid = $_GET['pid'];
-      $res = mysqli_query($cn,"Select timestamp from easyquiz.participants where id = '$pid';");
+      $res = mysqli_query($cn,"Select timestamp,time60 from easyquiz.participants where id = '$pid';");
       if(mysqli_error($cn)!="")
         {
           echo mysqli_error($cn);
@@ -32,11 +32,17 @@ if(isset($_GET['pid']))
         if ($sdata['timestamp'] == "")
         {
           $tiempo=time();
-          $res = mysqli_query($cn,"UPDATE easyquiz.participants SET timestamp = '$tiempo' WHERE id = '$pid';");
+          //Get time +60
+          $tiempo60=($tiempo+3600);
+          //Guardar tiempo +60 en el perfil de la DB - Not sure is needed
+          
+          $res = mysqli_query($cn,"UPDATE easyquiz.participants SET timestamp = '$tiempo', time60 = '$tiempo60' WHERE id = '$pid';");
+
         }
         else
         {
-          $tiempo = $sdata['timestamp'];
+          $tiempo = time();
+          $tiempo60 = $sdata['time60'];
         }
       }
       else
@@ -51,11 +57,7 @@ if(isset($_GET['pid']))
   if($pid > 0)
   {
     if ($tiempo > 0)
-      {
-        //Get time +60
-        $tiempo60=($tiempo+9200);
-        //Guardar tiempo +60 en el perfil de la DB - Not sure is needed
-        
+      {     
         if ($tiempo < $tiempo60)
         {
           $preguntaid=rand(1, 15);
