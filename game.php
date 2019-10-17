@@ -33,7 +33,7 @@ if(isset($_GET['pid']))
         {
           $tiempo=time();
           //Get time +60
-          $tiempo60=($tiempo+3600);
+          $tiempo60=($tiempo+360);
           //Guardar tiempo +60 en el perfil de la DB - Not sure is needed
           
           $res = mysqli_query($cn,"UPDATE easyquiz.participants SET timestamp = '$tiempo', time60 = '$tiempo60' WHERE id = '$pid';");
