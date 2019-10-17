@@ -106,7 +106,7 @@ Dale, te quedan <?php echo ($tiempo60-$tiempo) ?> segundos!!!!
 <br />
 		<h1><?php echo $preguntastring; ?></h1>
 		
-		<form action ="game.php?pid<?=$pid ?>" method ="post">
+		<form action ="game.php?pid=<?=$pid ?>" method ="post">
   <div>
 <?php
 //DEBUG:
