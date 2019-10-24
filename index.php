@@ -3,11 +3,11 @@
   <title>Easy Quiz</title>
  </head>
  <body>
-Bienvenido al desafio EasyQuiz!
+<h1>Bienvenido al desafio EasyQuiz!</h1>
 <br />
-Respondé la mayor cantidad de preguntas que puedas en un minuto!
+<h2>Respondé la mayor cantidad de preguntas que puedas en un minuto!</h2>
 <br />
-<a href="participar.php">Quiero participar!</a>
+<h2><a href="participar.php">Quiero participar!</a></h2>
 <br />
  <?php echo '->'; ?>
  </body>

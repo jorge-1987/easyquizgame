@@ -71,16 +71,16 @@
        }
 //Verificar que el mail tiene una arroba, y un punto.
 
-      $_POST['name'] = mysqli_escape_string($cn, $_POST['name']);
-      $_POST['lastname'] = mysqli_escape_string($cn, $_POST['lastname']);
-      $_POST['nick'] = mysqli_escape_string($cn, $_POST['nick']);
-      $_POST['email'] = mysqli_escape_string($cn, $_POST['email']);
+      $name = mysqli_escape_string($cn, $_POST['name']);
+      $lastname = mysqli_escape_string($cn, $_POST['lastname']);
+      $nick = mysqli_escape_string($cn, $_POST['nick']);
+      $email = mysqli_escape_string($cn, $_POST['email']);
 
 // GUARDAR TODO EN LA DB
-
+      mysqli_query($cn,"INSERT INTO easyquiz.participants (name, last_name, nick, mail) VALUES ('$name', '$lastname', '$nick', '$email');");
 // LEVANTAR ID
 
-      $res = mysqli_query($cn,"Select id,nick from easyquiz.participants where mail = 'j@j.com';");
+      $res = mysqli_query($cn,"Select id,nick from easyquiz.participants where mail = '$mail';");
       $sdata = mysqli_fetch_assoc($res);
 //      echo $pid["id"];
       $ready = 1;
@@ -131,9 +131,9 @@ Tenés 60 segundos para responder la mayor cantidad de preguntas sobre Astronom�
   {
 ?>
 <h1>Perfil listo para participar -<?=$sdata["nick"] ?>-!:</h1>
-<h2>Mucha suerte, una vez que hagas click en comenzar, empieza a correr el tiempo</h2>
+<h2>Mucha suerte, una vez que hagas click en comenzar, ¡empieza a correr el tiempo!</h2>
 <br />
-<a href="game.php?pid=<?=$sdata["id"] ?>">Comenzar!</a>
+<h2><a href="game.php?pid=<?=$sdata["id"] ?>">Comenzar!</a></h2>
 <?php
   }
 ?>
