@@ -4,6 +4,10 @@
  </head>
  <body>
 Tu score fue de: 
- <?php echo '-'; ?>
+ <?php echo 'SCORE'; ?>
+
+ <br />
+ <br />
+ <h2><a href="index.php">Volver al inicio!</a></h2>
  </body>
 </html>
