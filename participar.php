@@ -69,22 +69,30 @@
          printf("Error in email format");
          exit();
        }
-//Verificar que el mail tiene una arroba, y un punto.
 
-      $name = mysqli_escape_string($cn, $_POST['name']);
-      $lastname = mysqli_escape_string($cn, $_POST['lastname']);
-      $nick = mysqli_escape_string($cn, $_POST['nick']);
-      $email = mysqli_escape_string($cn, $_POST['email']);
+        $name = mysqli_escape_string($cn, $_POST['name']);
+        $lastname = mysqli_escape_string($cn, $_POST['lastname']);
+        $nick = mysqli_escape_string($cn, $_POST['nick']);
+        $email = mysqli_escape_string($cn, $_POST['email']);
 
+        //Verificar que el mail no este ya en la DB 
+
+        $res = mysqli_query($cn,"Select id from easyquiz.participants where mail = '$email';");
+
+        if (mysqli_num_rows($res) > 0)
+          {
+            printf("Email already registered");
+            exit();
+          }
 // GUARDAR TODO EN LA DB
-      mysqli_query($cn,"INSERT INTO easyquiz.participants (name, last_name, nick, mail) VALUES ('$name', '$lastname', '$nick', '$email');");
+        mysqli_query($cn,"INSERT INTO easyquiz.participants (name, last_name, nick, mail) VALUES ('$name', '$lastname', '$nick', '$email');");
 // LEVANTAR ID
 
-      $res = mysqli_query($cn,"Select id,nick from easyquiz.participants where mail = '$email';");
+        $res = mysqli_query($cn,"Select id,nick from easyquiz.participants where mail = '$email';");
       //echo $mail;
-      $sdata = mysqli_fetch_assoc($res);
+        $sdata = mysqli_fetch_assoc($res);
       //echo $sdata["id"];
-      $ready = 1;
+        $ready = 1;
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
 
 //mysqli_close($enlace);
