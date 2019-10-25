@@ -9,6 +9,5 @@
 <br />
 <h2><a href="participar.php">Quiero participar!</a></h2>
 <br />
- <?php echo '->'; ?>
  </body>
 </html>

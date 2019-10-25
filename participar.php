@@ -80,9 +80,10 @@
       mysqli_query($cn,"INSERT INTO easyquiz.participants (name, last_name, nick, mail) VALUES ('$name', '$lastname', '$nick', '$email');");
 // LEVANTAR ID
 
-      $res = mysqli_query($cn,"Select id,nick from easyquiz.participants where mail = '$mail';");
+      $res = mysqli_query($cn,"Select id,nick from easyquiz.participants where mail = '$email';");
+      //echo $mail;
       $sdata = mysqli_fetch_assoc($res);
-//      echo $pid["id"];
+      //echo $sdata["id"];
       $ready = 1;
 //      echo $_POST['name'].'-'.$_POST['lastname'].'-'.$_POST['nick'].'-'.$_POST['email'].$_POST['datos'].$ready;
 
@@ -98,7 +99,7 @@
   <title>Easy Quiz - Particpar</title>
  </head>
  <body>
-Tenés 60 segundos para responder la mayor cantidad de preguntas sobre Astronomía, RadioAstronomia, etc… Los tres mayores puntajes al cierre del evento tienen premio, y será informado vía Mail.
+Tenés 60 segundos para responder la mayor cantidad de preguntas.
 <br />
 <?php 
   if($ready==0)
