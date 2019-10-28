@@ -8,14 +8,10 @@
   }
 
   $res = mysqli_query($cn,"Select nick,score,timestamp from easyquiz.participants ORDER BY score DESC, timestamp LIMIT 10;");
-
-
-
-
-    $highscore = array();
-    while($fila = mysqli_fetch_assoc($res)){
-      $highscore[] = $fila;
-    }
+  $highscore = array();
+  while($fila = mysqli_fetch_assoc($res)){
+    $highscore[] = $fila;
+  }
 
   
 
@@ -32,10 +28,10 @@
 <br />
 <h2><a href="participar.php">Quiero participar!</a></h2>
 <br /><br /><br />
-<table>
-	<tr>
-					<th>Nick</th><th>Score</th><th>Timestamp</th>
-	</tr>
+<table border="1">
+  <tr>
+    <th>Nick</th><th>Score</th><th>Timestamp</th>
+  </tr>
 <?php
 foreach ($highscore as $valor) {
  ?>
