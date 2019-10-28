@@ -1,3 +1,26 @@
+<?php 
+  //Conectar
+  $cn = mysqli_connect("localhost","easyquiz","some_pass","easyquiz",3306);
+  /* verificar la conexión */
+  if (mysqli_connect_errno()) {
+    printf("Falló la conexión: %s\n", mysqli_connect_error());
+    exit();
+  }
+
+  $res = mysqli_query($cn,"Select nick,score,timestamp from easyquiz.participants ORDER BY score DESC, timestamp LIMIT 10;");
+
+
+
+
+    $highscore = array();
+    while($fila = mysqli_fetch_assoc($res)){
+      $highscore[] = $fila;
+    }
+
+  
+
+?>
+<!DOCTYPE html>
 <html>
  <head>
   <title>Easy Quiz</title>
@@ -8,6 +31,7 @@
 <h2>Respondé la mayor cantidad de preguntas que puedas en un minuto!</h2>
 <br />
 <h2><a href="participar.php">Quiero participar!</a></h2>
-<br />
- </body>
+<br /><br /><br />
+<?php echo $highscore; ?>
+</body>
 </html>
