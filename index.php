@@ -32,6 +32,20 @@
 <br />
 <h2><a href="participar.php">Quiero participar!</a></h2>
 <br /><br /><br />
-<?php echo $highscore; ?>
+<table>
+	<tr>
+					<th>Nick</th><th>Score</th><th>Timestamp</th>
+	</tr>
+<?php
+foreach ($highscore as $valor) {
+ ?>
+  <tr>
+    <td><?= $valor['nick'] ?></td><td><?= $valor['score'] ?></td><td><?= $valor['timestamp'] ?></td>
+  </tr>
+    <?php
+}
+?>
+<br />
+</table><br />
 </body>
 </html>
