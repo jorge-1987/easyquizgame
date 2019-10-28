@@ -19,6 +19,11 @@ if(isset($_GET['pid']))
     if (ctype_digit($_GET['pid']))
     {
       $pid = $_GET['pid'];
+      if ($pid < 0)
+        {
+          echo "ERROR EN EL PID";
+          exit();
+        }
       $res = mysqli_query($cn,"Select timestamp,time60 from easyquiz.participants where id = '$pid';");
       if(mysqli_error($cn)!="")
         {
