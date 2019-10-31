@@ -65,6 +65,15 @@ if(isset($_GET['pid']))
       {     
         if ($tiempo < $tiempo60)
         {
+
+          //Check last answer
+          if(isset($_POST['datos']))
+          {
+            echo $_POST['answ'];
+            echo $_POST['qst'];
+          }
+
+
           $preguntaid=rand(1, 15);
           //levantar pregunta de la DB
           //$preguntastring= "algo $preguntaid"
@@ -129,7 +138,8 @@ foreach($respuestas as $rid)
 }
 ?>
   </div>
-			<input type="hidden" id="datos" name="datos" value="<?php $_POST['datos'] ?>">
+			<input type="hidden" id="datos" name="datos" value="<?=$pid ?>">
+      <input type="hidden" id="qst" name="qst" value="<?=$preguntaid ?>">
 			<br / > <br />
 			<input type="submit" value="Responder!"/>
 			
