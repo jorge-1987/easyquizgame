@@ -24,16 +24,16 @@ if(isset($_GET['pid']))
           echo "ERROR EN EL PID";
           exit();
         }
-      $res = mysqli_query($cn,"Select timestamp,time60 from easyquiz.participants where id = '$pid';");
+      $res1 = mysqli_query($cn,"Select score,timestamp,time60 from easyquiz.participants where id = '$pid';");
       if(mysqli_error($cn)!="")
         {
           echo mysqli_error($cn);
           $pid = -1;
           exit();
         }
-      if (mysqli_num_rows($res) == 1)
+      if (mysqli_num_rows($res1) == 1)
       {
-        $sdata = mysqli_fetch_assoc($res);
+        $sdata = mysqli_fetch_assoc($res1);
         if ($sdata['timestamp'] == "")
         {
           $tiempo=time();
@@ -41,7 +41,7 @@ if(isset($_GET['pid']))
           $tiempo60=($tiempo+60);
           //Guardar tiempo +60 en el perfil de la DB - Not sure is needed
           
-          $res = mysqli_query($cn,"UPDATE easyquiz.participants SET timestamp = '$tiempo', time60 = '$tiempo60' WHERE id = '$pid';");
+          $res2 = mysqli_query($cn,"UPDATE easyquiz.participants SET timestamp = '$tiempo', time60 = '$tiempo60' WHERE id = '$pid';");
 
         }
         else
@@ -69,8 +69,15 @@ if(isset($_GET['pid']))
           //Check last answer
           if(isset($_POST['datos']))
           {
-            echo $_POST['answ'];
-            echo $_POST['qst'];
+            if ( $_POST['answ'] == $_POST['qst'] )
+            {
+              $score = $sdata['score'];
+              $score = $score + 5;
+
+              $res3 = mysqli_query($cn,"UPDATE easyquiz.participants SET score = '$score' WHERE id = '$pid';");
+
+            }
+
           }
 
 
