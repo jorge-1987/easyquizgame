@@ -102,6 +102,10 @@ if(isset($_GET['pid']))
               {
                 array_push($respuestas, $respid);
               }
+              else
+              {
+                $i--;                
+              }
             }
             else
             {
