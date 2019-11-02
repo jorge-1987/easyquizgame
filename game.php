@@ -69,6 +69,8 @@ if(isset($_GET['pid']))
           //Check last answer
           if(isset($_POST['datos']))
           {
+            //SANITIZAR DATOS
+
             if ( $_POST['answ'] == $sdata['qid'] )
             {
               $score = $sdata['score'];
@@ -96,7 +98,10 @@ if(isset($_GET['pid']))
             $respid=rand(1, 15);
             if ($respid != $preguntaid)
             {
-              array_push($respuestas, $respid);
+              if (!in_array ($respid,$respuestas))
+              {
+                array_push($respuestas, $respid);
+              }
             }
             else
             {
