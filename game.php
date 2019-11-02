@@ -24,7 +24,7 @@ if(isset($_GET['pid']))
           echo "ERROR EN EL PID";
           exit();
         }
-      $res1 = mysqli_query($cn,"Select score,timestamp,time60 from easyquiz.participants where id = '$pid';");
+      $res1 = mysqli_query($cn,"Select score,timestamp,time60,qid from easyquiz.participants where id = '$pid';");
       if(mysqli_error($cn)!="")
         {
           echo mysqli_error($cn);
@@ -69,7 +69,7 @@ if(isset($_GET['pid']))
           //Check last answer
           if(isset($_POST['datos']))
           {
-            if ( $_POST['answ'] == $_POST['qst'] )
+            if ( $_POST['answ'] == $sdata['qid'] )
             {
               $score = $sdata['score'];
               $score = $score + 5;
@@ -84,6 +84,9 @@ if(isset($_GET['pid']))
           $preguntaid=rand(1, 15);
           //levantar pregunta de la DB
           //$preguntastring= "algo $preguntaid"
+
+          //Insert preguntaid en la DB
+          $res4 = mysqli_query($cn,"UPDATE easyquiz.participants SET qid = $preguntaid WHERE id = '$pid';");
 
           $respuestas=array(); 
           array_push($respuestas, $preguntaid);
@@ -146,7 +149,6 @@ foreach($respuestas as $rid)
 ?>
   </div>
 			<input type="hidden" id="datos" name="datos" value="<?=$pid ?>">
-      <input type="hidden" id="qst" name="qst" value="<?=$preguntaid ?>">
 			<br / > <br />
 			<input type="submit" value="Responder!"/>
 			
