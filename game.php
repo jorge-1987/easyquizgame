@@ -74,18 +74,14 @@ if(isset($_GET['pid']))
             $aid = $_POST['answ'];
             $qid = $sdata['qid'];
             
-            $res5 = mysqli_query($cn,"Select answer from easyquiz.quizas where qid = '$aid';");
+            $res5 = mysqli_query($cn,"Select answer from easyquiz.quizes where qid = '$aid';");
 
             $adata = mysqli_fetch_assoc($res5);
 
-            $res5 = mysqli_query($cn,"Select answer from easyquiz.quizas where qid = '$qid';");
+            $res5 = mysqli_query($cn,"Select answer from easyquiz.quizes where qid = '$qid';");
 
             $qdata = mysqli_fetch_assoc($res5);
 
-            if(mysqli_error($cn)!="")
-        {
-          echo mysqli_error($cn);
-        }
 
             if ( $aid == $qid or $adata['answer'] == $qdata['answer'] )
             {
@@ -101,7 +97,7 @@ if(isset($_GET['pid']))
 
           $preguntaid=rand(1, 12);
           //levantar pregunta de la DB
-          $res5 = mysqli_query($cn,"Select question,answer from easyquiz.quizas where qid = '$preguntaid';");
+          $res5 = mysqli_query($cn,"Select question,answer from easyquiz.quizes where qid = '$preguntaid';");
 
           $qdata = mysqli_fetch_assoc($res5);
 
