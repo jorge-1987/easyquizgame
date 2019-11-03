@@ -82,7 +82,12 @@ if(isset($_GET['pid']))
 
             $qdata = mysqli_fetch_assoc($res5);
 
-            if ( $aid == $qid ) or ($adata['answer'] == $qdata['answer'] )
+            if(mysqli_error($cn)!="")
+        {
+          echo mysqli_error($cn);
+        }
+
+            if ( $aid == $qid or $adata['answer'] == $qdata['answer'] )
             {
               $score = $sdata['score'];
               $score = $score + 5;
