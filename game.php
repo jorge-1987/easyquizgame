@@ -71,7 +71,18 @@ if(isset($_GET['pid']))
           {
             //SANITIZAR DATOS
 
-            if ( $_POST['answ'] == $sdata['qid'] )
+            $aid = $_POST['answ'];
+            $qid = $sdata['qid'];
+            
+            $res5 = mysqli_query($cn,"Select answer from easyquiz.quizas where qid = '$aid';");
+
+            $adata = mysqli_fetch_assoc($res5);
+
+            $res5 = mysqli_query($cn,"Select answer from easyquiz.quizas where qid = '$qid';");
+
+            $qdata = mysqli_fetch_assoc($res5);
+
+            if ( $aid == $qid ) or ($adata['answer'] == $qdata['answer'] )
             {
               $score = $sdata['score'];
               $score = $score + 5;
@@ -83,10 +94,14 @@ if(isset($_GET['pid']))
           }
 
 
-          $preguntaid=rand(1, 15);
+          $preguntaid=rand(1, 12);
           //levantar pregunta de la DB
-          //$preguntastring= "algo $preguntaid"
+          $res5 = mysqli_query($cn,"Select question,answer from easyquiz.quizas where qid = '$preguntaid';");
 
+          $qdata = mysqli_fetch_assoc($res5);
+
+          $preguntastring = $qdata['question'];
+          
           //Insert preguntaid en la DB
           $res4 = mysqli_query($cn,"UPDATE easyquiz.participants SET qid = $preguntaid WHERE id = '$pid';");
 
@@ -95,7 +110,7 @@ if(isset($_GET['pid']))
 
           for ($i = 1; $i <= 3; $i++)
           {
-            $respid=rand(1, 15);
+            $respid=rand(1, 12);
             if ($respid != $preguntaid)
             {
               if (!in_array ($respid,$respuestas))
