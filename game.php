@@ -101,7 +101,14 @@ if(isset($_GET['pid']))
 
           $qdata = mysqli_fetch_assoc($res5);
 
+          if(mysqli_error($cn)!="")
+          {
+            echo mysqli_error($cn);
+          }
+          
           $preguntastring = $qdata['question'];
+          echo $preguntaid;
+          echo $preguntastring;
           
           //Insert preguntaid en la DB
           $res4 = mysqli_query($cn,"UPDATE easyquiz.participants SET qid = $preguntaid WHERE id = '$pid';");
